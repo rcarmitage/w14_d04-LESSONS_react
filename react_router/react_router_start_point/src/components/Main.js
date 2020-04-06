@@ -28,7 +28,7 @@ class Main extends Component {
           <li>
             <a onClick={this.gotoPricing}>Pricing</a>
           </li>
-        </ul>
+       </ul>
         {child}
       </div>
     );
@@ -59,6 +59,7 @@ class Main extends Component {
     event.preventDefault();
     this.setState({ page: "/pricing" });
   }
+
 }
 
 export default Main;

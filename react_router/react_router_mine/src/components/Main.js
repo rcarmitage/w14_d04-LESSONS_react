@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import About from "./About";
 import Home from "./Home";
 import Pricing from "./Pricing";
+import Contact from "./Contact";
 
 class Main extends Component {
   constructor() {
@@ -11,6 +12,7 @@ class Main extends Component {
     this.gotoHome = this.gotoHome.bind(this);
     this.gotoAbout = this.gotoAbout.bind(this);
     this.gotoPricing = this.gotoPricing.bind(this);
+    this.gotoContact = this.gotoContact.bind(this);
   }
 
   render() {
@@ -28,6 +30,9 @@ class Main extends Component {
           <li>
             <a onClick={this.gotoPricing}>Pricing</a>
           </li>
+          <li>
+            <a onClick={this.gotoContact}>Contact</a>
+          </li>
         </ul>
         {child}
       </div>
@@ -40,6 +45,8 @@ class Main extends Component {
         return <About />;
       case "/pricing":
         return <Pricing />;
+      case "/contact":
+        return <Contact />
       default:
         return <Home />;
     }
@@ -58,6 +65,11 @@ class Main extends Component {
   gotoPricing(event) {
     event.preventDefault();
     this.setState({ page: "/pricing" });
+  }
+
+  gotoContact(event) {
+    event.preventDefault();
+    this.setState({ page: "/contact"});
   }
 }
 
