@@ -8,6 +8,17 @@ import Offers from "./Offers";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pricing: [
+        {level: "Hobby", cost: 0},
+        {level: "Startup", cost: 10},
+        {level: "Enterprise", cost: 10}
+      ]
+    };
+  }
+  
   render() {
     return (
       <Router>
@@ -15,7 +26,9 @@ class Main extends Component {
           <NavBar />
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/pricing" component={Pricing} />
+          <Route
+            path="/pricing" render={() => <Pricing prices={this.state.pricing} />}
+          />
           <Route path="/offers" component={Offers} />
           <Route path="/contact" component={Contact} />
         </React.Fragment>
