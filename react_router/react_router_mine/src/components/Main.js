@@ -5,7 +5,8 @@ import Pricing from "./Pricing";
 import Contact from "./Contact";
 import NavBar from "./NavBar";
 import Offers from "./Offers";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Main extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Main extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
+          <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route
@@ -31,6 +33,8 @@ class Main extends Component {
           />
           <Route path="/offers" component={Offers} />
           <Route path="/contact" component={Contact} />
+          <Route component={ErrorPage} />
+          </Switch>
         </React.Fragment>
       </Router>
     );
